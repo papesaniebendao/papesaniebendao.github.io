@@ -1,34 +1,42 @@
-// scripts.js
+const textArray = [
+    "Développeur Web.",
+    "Développeur Mobile.",
+    "Passionné de Technologie.",
+    "Créateur de Solutions."
+];
 
-document.addEventListener("DOMContentLoaded", () => {
-    const typingText = document.querySelector(".typing-text");
-    const textArray = ["Développeur Web", "Développeur Mobile", "Programmeur Python", "Programmeur Java"];
-    let textIndex = 0;
-    let charIndex = 0;
-    let typingDelay = 150;
-    let erasingDelay = 100;
-    let newTextDelay = 2000; // Delay between current and next text
+let textIndex = 0;
+let charIndex = 0;
+let currentText = '';
+let isDeleting = false;
 
-    function type() {
-        if (charIndex < textArray[textIndex].length) {
-            typingText.textContent += textArray[textIndex].charAt(charIndex);
-            charIndex++;
-            setTimeout(type, typingDelay);
-        } else {
-            setTimeout(erase, newTextDelay);
-        }
+function type() {
+    if (textIndex === textArray.length) {
+        textIndex = 0;
     }
 
-    function erase() {
-        if (charIndex > 0) {
-            typingText.textContent = textArray[textIndex].substring(0, charIndex - 1);
-            charIndex--;
-            setTimeout(erase, erasingDelay);
-        } else {
-            textIndex = (textIndex + 1) % textArray.length;
-            setTimeout(type, typingDelay + 500); // Slight delay before typing next text
-        }
+    currentText = textArray[textIndex];
+
+    if (isDeleting) {
+        charIndex--;
+    } else {
+        charIndex++;
     }
 
-    if (textArray.length) setTimeout(type, newTextDelay + 250);
+    document.querySelector('.typing-text').textContent = currentText.substring(0, charIndex);
+
+    if (charIndex === currentText.length) {
+        isDeleting = true;
+    }
+
+    if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex++;
+    }
+
+    setTimeout(type, isDeleting ? 100 : 150);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    type();
 });

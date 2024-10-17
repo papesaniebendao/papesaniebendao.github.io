@@ -21,10 +21,11 @@
             <input type="checkbox" name="check" id="check" />
             <ul>
                 <li><a href="#">Accueil</a></li>
-                <li><a href="#">À Propos</a></li>
+                <li><a href="#about">À Propos</a></li>
                 <li><a href="#">CV</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+
             </ul>
         </div>
     </nav>
@@ -41,13 +42,66 @@
                 </p>
                 <div class="action__btns">
                     <button class="hire__me">Engagez-moi</button>
-                    <button class="portfolio">Mon Portfolio</button>
+                    <a href="#portfolio"><button id="monPortfolio">Mon Portfolio</button></a>
                 </div>
             </div>
             <div class="image">
                 <img src="images/pape.jpg" alt="Pape Saniebe Ndao" />
             </div>
         </div>
+    </section>
+
+    <!-- Section À Propos -->
+    <section class="about" id="about">
+        <div class="about__content">
+            <h2>À Propos de Moi</h2>
+            <p>
+                Je suis un développeur passionné par les technologies web et mobiles. Avec plusieurs projets à mon actif, je me spécialise dans la création d'applications et de sites qui offrent une expérience utilisateur fluide et agréable.
+            </p>
+            <p>
+                Mon objectif est d'apporter des solutions créatives et innovantes aux problèmes rencontrés par mes clients. Je suis toujours à la recherche de nouvelles opportunités d'apprentissage et de collaboration.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section Portfolio -->
+    <section class="portfolio" id="portfolio">
+        <h2>Mon Portfolio</h2>
+        <div class="portfolio__grid">
+            <div class="portfolio__item">
+                <img src="images/doc1.png" alt="Projet 1" />
+                <p>site samadoc</p>
+            </div>
+            <div class="portfolio__item">
+                <img src="images/doc2.png" alt="Projet 2" />
+                <p>site samadoc</p>
+            </div>
+            <div class="portfolio__item">
+                <img src="images/doc3.png" alt="Projet 3" />
+                <p>site samadoc</p>
+            </div>
+            <div class="portfolio__item">
+                <img src="images/agri1.png" alt="Projet 4" />
+                <p>Application mobile agriconnect</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact">
+        <h2>Contactez-moi</h2>
+        <form>
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" required></textarea>
+    
+            <button type="submit">Envoyer</button>
+        </form>
     </section>
 
     <!-- Ajouter le script à la fin du body -->
