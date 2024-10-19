@@ -2,8 +2,8 @@
 
 :root {
     --primary-color: #1a1a2e; /* Couleur principale royale */
-    --secondary-color: #e94560; /* Couleur secondaire vibrante */
-    --background-color: #16213e; /* Couleur de fond sombre élégante */
+    --secondary-color: #4C7679; /* Couleur secondaire vibrante */
+    --background-color: black; /* Couleur de fond sombre élégante */
     --text-color: #f5f5f5; /* Couleur du texte claire */
     --accent-color: #e43f5a; /* Couleur d'accentuation */
     --max-width: 1200px;
@@ -29,14 +29,20 @@ body {
 
 nav {
     width: 100%;
+    height: 80px;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(26, 26, 46, 0.9); /* Fond semi-transparent */
+    background-color: transparent; /* Fond transparent par défaut */
     z-index: 99;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    transition: box-shadow 0.3s ease;
-    border-radius: 0 0 20px 20px
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transition pour le changement de fond */
+    border-radius: 0;
+}
+
+nav.scrolled {
+    background-color: white; /* Fond blanc lorsque l'on fait défiler */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Ombre plus forte lorsque défilé */
 }
 
 nav:hover {
@@ -60,7 +66,7 @@ nav .logo a {
 }
 
 nav .logo a:hover {
-    color: var(--accent-color);
+    color: var(--secondary-color);
 }
 
 nav .checkbox {
@@ -76,6 +82,7 @@ nav .checkbox i {
     color: var(--secondary-color);
     cursor: pointer;
 }
+
 
 ul {
     display: flex;
@@ -96,7 +103,7 @@ ul li a {
     padding: 0.5rem 1rem;
     border: 2px solid transparent;
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--secondary-color);
     transition: 0.3s;
 }
 
@@ -105,10 +112,8 @@ ul li a:hover {
     color: var(--secondary-color);
 }
 
-.section {
-    background-color: var(--background-color);
-    padding-top: 80px; /* Espace pour le nav */
-}
+
+
 
 .section__container {
     min-height: 100vh;
@@ -131,6 +136,7 @@ ul li a:hover {
     letter-spacing: 2px;
     color: var(--secondary-color);
     font-weight: 600;
+    margin-top: 2rem;
     margin-bottom: 1rem;
 }
 
@@ -188,7 +194,7 @@ ul li a:hover {
 }
 
 .action__btns .hire__me:hover {
-    background-color: var(--accent-color);
+    background-color: var(--primary-colors);
     border-color: var(--accent-color);
 }
 
@@ -210,7 +216,7 @@ ul li a:hover {
 .image img {
     width: 300px;
     height: 300px;
-    border-radius: 50%; /* Image circulaire */
+    border-radius: 100%; /* Image circulaire */
     object-fit: cover;
     animation: float 4s ease-in-out infinite;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -254,11 +260,13 @@ ul li a:hover {
 
 /* Styles pour la section À Propos */
 .about {
+    min-height: 500px;
     padding: 4rem 2rem;
-    background-color: var(--background-color);
+    background-color: var(--secondary-color);;
     color: var(--text-color);
     text-align: center;
 }
+
 
 .about__content h2 {
     font-size: 2.5rem;
@@ -291,12 +299,15 @@ ul li a:hover {
 }
 
 .portfolio {
+    background-color: white !important;
     padding: 50px 0;
     text-align: center;
 }
 
 .portfolio h2 {
     margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 2.5rem;
 }
 
 .portfolio__grid {
@@ -326,7 +337,7 @@ ul li a:hover {
 
 #contact {
     padding: 50px;
-    background-color: #16213e;
+    /*background-color: black;*/
     text-align: center;
 }
 
@@ -355,3 +366,382 @@ ul li a:hover {
 #contact button:hover {
     background-color: #555;
 }
+
+
+
+/* Slideshow Container */
+.slideshow-container {
+    position: relative;
+    width: 300px;  /* Adjust width as needed */
+    height: 400px; /* Adjust height as needed */
+    margin: auto;
+    overflow: hidden; /* Hide overflowing images */
+}
+
+.image-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.image-stack img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease; /* Smooth transition */
+}
+
+.image-stack img.active {
+    opacity: 1; /* Show active image */
+}
+
+
+/* Styles pour la section Portfolio */
+.portfolio {
+    padding: 4rem 2rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+}
+
+.portfolio__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: var(--max-width);
+    margin: auto;
+}
+
+.portfolio__item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.portfolio__item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.portfolio__item:hover img {
+    transform: scale(1.1); /* Zoom sur l'image */
+}
+
+.portfolio__info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio__item:hover .portfolio__info {
+    opacity: 1;
+    transform: translateY(0); /* Faire remonter l'information avec un fondu */
+}
+
+.portfolio__info h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.portfolio__info p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+
+/*------*/
+
+.section {
+    position: relative;
+    overflow: hidden; /* Pour éviter que le contenu dépasse de la section */
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Met la vidéo derrière le contenu */
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.about {
+    position: relative; /* Pour positionner l'icône par rapport à cette section */
+    padding-bottom: 70px; /* Espace pour l'icône */
+}
+
+.continue-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; /* Positionnement absolu */
+    bottom: 80px; /* Espace depuis le bas de la section */
+    left: 50%; /* Centre horizontalement */
+    transform: translateX(-50%); /* Ajuste le centrage */
+    width: 80px; /* Largeur du cercle */
+    height: 80px; /* Hauteur du cercle */
+    border-radius: 50%; /* Rendre le fond circulaire */
+    background-color: var(--text-color); /* Couleur de fond du cercle */
+    color: var( --accent-color); /* Couleur de l'icône */
+    font-size: 20px; /* Taille de l'icône */
+    text-decoration: none; /* Enlève le soulignement du lien */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour effet 3D */
+    transition: background-color 0.3s, transform 0.3s; /* Effets de transition */
+}
+
+.continue-icon:hover {
+    background-color: var(--primary-color); /* Couleur lors du survol */
+    transform: translateX(-50%) translateY(-2px); /* Léger mouvement vers le haut lors du survol */
+}
+
+#formations {
+    background-color: #ffffff; /* Fond blanc pour la section */
+    padding: 40px 20px; /* Ajoute du padding pour aérer la section */
+}
+
+#formations h2 {
+    text-align: center; /* Centre le titre */
+    color: var(--primary-color); /* Couleur du texte du titre */
+    font-size: 2.5rem;
+    bottom: 20px;
+}
+
+#formations p{
+    text-align: center;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.formations-container {
+    display: flex;
+    flex-direction: column; /* Aligne les formations verticalement */
+    align-items: center; /* Centre les formations */
+}
+
+.formation {
+    display: flex;
+    align-items: center; /* Aligne les éléments au centre */
+    margin: 20px 0; /* Espace entre les formations */
+}
+
+.arrow {
+    font-size: 30px; /* Taille de la flèche */
+    color: #333; /* Couleur de la flèche */
+    margin: 0 10px; /* Espace autour des flèches */
+}
+
+.circle {
+    background-color: #f9f9f9; /* Fond légèrement gris pour les cercles */
+    border-radius: 50%; /* Rend l'élément circulaire */
+    display: flex; /* Utilise Flexbox pour centrer l'image */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    width: 120px; /* Largeur fixe pour le cercle */
+    height: 120px; /* Hauteur fixe pour le cercle */
+    overflow: hidden; /* Cache les parties débordantes */
+}
+
+.formation-image {
+    width: 100%; /* Remplit le cercle complètement */
+    height: 100%; /* Remplit le cercle complètement */
+    object-fit: cover; /* Couvre le cercle sans déformation */
+    border-radius: 50%; /* Rend l'image circulaire */
+}
+
+.descriptionFormation {
+    flex: 1; /* Prend le reste de l'espace disponible */
+    text-align: center; /* Centre le texte de la description */
+    color: #000; /* Couleur du texte en noir */
+}
+
+
+
+#contact {
+    position: relative; /* Permet de positionner les éléments au-dessus de la vidéo */
+    color: white; /* Assure que le texte est lisible */
+    z-index: 2; /* Place le texte et le formulaire au-dessus de la vidéo */
+    padding: 50px 20px;
+}
+#contact h2{
+   font-size: 2.5rem;
+   opacity: 0.9;
+}
+
+.video-background1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1; /* Place la vidéo en arrière-plan */
+    opacity: 0.8; /* Légère opacité pour que le texte ressorte */
+}
+
+#contact-video1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assure que la vidéo couvre toute la section */
+}
+
+/* Section Contact */
+.contact-container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+    background-color: var(--secondary-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.contact-container h2 {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem; /* Espace entre les colonnes */
+}
+
+.left-column, .right-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Chaque colonne prend la même largeur */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-group input, 
+.form-group textarea {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    background-color: #333;
+    color: var(--text-color);
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+}
+
+textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+/* Style du bouton */
+button[type="submit"] {
+    align-self: flex-start; /* Aligner le bouton à gauche dans la colonne droite */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--accent-color);
+}
+
+button[type="submit"] i {
+    font-size: 1.2rem;
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+    .form-columns {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    button[type="submit"] {
+        align-self: center; /* Centrer le bouton sur mobile */
+    }
+}
+
+
+.footer {
+    font-family: 'Poppins', sans-serif; /* Applique la police Poppins */
+    font-weight: 600; /* Rend la police plus épaisse */
+    text-align: center;
+    padding: 20px; /* Ajustez la hauteur selon vos besoins */
+    background-color: white; /* Couleur de fond */
+    color: black; /* Couleur du texte */
+}
+
+
+.footer p {
+    margin: 0; /* Enlève les marges par défaut */
+    font-family: Arial, sans-serif; /* Police simple et lisible */
+}
+
+.footer span {
+    font-size: 14px; /* Taille de l'icône */
+    vertical-align: middle; /* Aligne l'icône avec le texte */
+    margin-right: 5px; /* Espacement entre l'icône et le texte */
+}
+
+

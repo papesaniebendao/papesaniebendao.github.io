@@ -40,3 +40,28 @@ function type() {
 document.addEventListener('DOMContentLoaded', () => {
     type();
 });
+
+let currentSlide = 0;
+const slides = document.querySelectorAll('.image-stack img');
+
+function changeSlide() {
+    slides[currentSlide].classList.remove('active'); // Hide current slide
+    currentSlide = (currentSlide + 1) % slides.length; // Move to the next slide
+    slides[currentSlide].classList.add('active'); // Show the next slide
+}
+
+// Change slides every 3 seconds
+setInterval(changeSlide, 3000);
+
+
+// Écouteur d'événements pour le défilement de la page
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('nav'); // Sélection de la barre de navigation
+
+    // Vérifie si la position de défilement est supérieure à 0
+    if (window.scrollY > 0) {
+        nav.classList.add('scrolled'); // Ajoute la classe 'scrolled'
+    } else {
+        nav.classList.remove('scrolled'); // Retire la classe 'scrolled'
+    }
+});

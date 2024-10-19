@@ -10,6 +10,9 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <title>P.S.N. | Portfolio de Développement Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <nav>
@@ -20,89 +23,198 @@
             </label>
             <input type="checkbox" name="check" id="check" />
             <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#about">À Propos</a></li>
-                <li><a href="#">CV</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">ACCEUIL</a></li>
+                <li><a href="#about">À PROPOS</a></li>
+                <li><a href="fichiers/mon_cv.pdf">CV</a></li>
+                <li><a href="#portfolio">PORTFOLIO</a></li>
+                <li><a href="#contact">CONTACT</a></li>
 
             </ul>
         </div>
     </nav>
-    <section class="section">
-        <div class="section__container">
-            <div class="content">
-                <p class="subtitle">BIENVENUE</p>
-                <h1 class="title">
-                    Je suis <span>Pape Saniebe Ndao</span><br />
-                    <span class="typing-text"></span>
-                </h1>
-                <p class="description">
-                    Bienvenue sur mon portfolio de développeur web et mobile ! Je suis Pape Saniebe Ndao, un développeur web et mobile passionné et créatif, spécialisé dans la création de sites web beaux, réactifs et conviviaux. J'ai travaillé sur divers projets web, allant de blogs personnels à des plateformes de commerce électronique.
-                </p>
-                <div class="action__btns">
-                    <button class="hire__me">Engagez-moi</button>
-                    <a href="#portfolio"><button id="monPortfolio">Mon Portfolio</button></a>
-                </div>
-            </div>
-            <div class="image">
-                <img src="images/pape.jpg" alt="Pape Saniebe Ndao" />
+   <section class="section">
+    <div class="video-background">
+        <video autoplay loop muted>
+            <source src="images/background.mp4" type="video/mp4"> <!-- Remplace "ton_video.mp4" par le nom de ton fichier -->
+            Ton navigateur ne supporte pas la vidéo.
+        </video>
+    </div>
+    <div class="section__container">
+        <div class="content">
+            <p class="subtitle">BIENVENUE</p>
+            <h1 class="title">
+                Je suis <span>Pape Saniebe Ndao</span><br />
+                <span class="typing-text"></span>
+            </h1>
+            <p class="description">
+                Bienvenue sur mon portfolio de développeur web et mobile ! Je suis Pape Saniebe Ndao, un développeur web et mobile passionné et créatif, spécialisé dans la création de sites web beaux, réactifs et conviviaux. J'ai travaillé sur divers projets web.
+            </p>
+            <div class="action__btns">
+
+                <!-- Bouton Mon Portfolio avec lien vers la section portfolio -->
+                <a href="#contact" class="btn-link">
+                    <button id="monPortfolio" class="portfolio__btn">Engagez-moi</button>
+                </a>
+                
+                <!-- Bouton Mon CV pour télécharger le CV -->
+                <a href="fichiers/mon_cv.pdf" class="btn-link" download>
+                    <button id="monCv" class="cv__btn">Telecharger mon CV! </button>
+                </a>
             </div>
         </div>
-    </section>
+
+        <!-- Section diaporama d'images -->
+        <div class="slideshow-container">
+            <div class="image-stack">
+                <img src="images/pape1.jpg" alt="Pape Image 1" class="image1 active" />
+                <img src="images/pape2.png" alt="Pape Image 2" class="image2" />
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <!-- Section À Propos -->
     <section class="about" id="about">
         <div class="about__content">
-            <h2>À Propos de Moi</h2>
+            <h2>Faisons connaissance :)</h2>
             <p>
-                Je suis un développeur passionné par les technologies web et mobiles. Avec plusieurs projets à mon actif, je me spécialise dans la création d'applications et de sites qui offrent une expérience utilisateur fluide et agréable.
+                Avant toute chose, je me présente. J'ai 23 ans et je suis actuellement à l'universite Gaston Berger de Saint-Louis au Senegal. Je vous présente mon portfolio qui retrace mon parcours.
             </p>
             <p>
-                Mon objectif est d'apporter des solutions créatives et innovantes aux problèmes rencontrés par mes clients. Je suis toujours à la recherche de nouvelles opportunités d'apprentissage et de collaboration.
+                Au fil de mes formations et de mes expériences, je me suis spécialisé dans le domaine du développement web et mobile.
+                Je vous invite à consulter le panel non exhaustif de mes compétences ci-dessous.
             </p>
-        </div>
+        </div> 
+        <a href="#next-section" class="continue-icon">
+            <i class="fas fa-arrow-down"></i>
+        </a>
     </section>
 
     <!-- Section Portfolio -->
     <section class="portfolio" id="portfolio">
-        <h2>Mon Portfolio</h2>
+        <h2>Mes Projets</h2>
         <div class="portfolio__grid">
             <div class="portfolio__item">
-                <img src="images/doc1.png" alt="Projet 1" />
-                <p>site samadoc</p>
+                <img src="images/doc1.png" alt="Projet 1">
+                <div class="portfolio__info">
+                    <h3>Projet 1</h3>
+                    <p>Développement d'une application web pour la reservation de rendez-vous medicale pour les medecins et les patients.</p>
+                </div>
             </div>
             <div class="portfolio__item">
-                <img src="images/doc2.png" alt="Projet 2" />
-                <p>site samadoc</p>
+                <img src="images/doc2.png" alt="Projet 2">
+                <div class="portfolio__info">
+                    <h3>Projet 1</h3>
+                    <p>Développement d'une application web pour la reservation de rendez-vous medicale pour les medecins et les patients.</p>
+                </div>
             </div>
             <div class="portfolio__item">
-                <img src="images/doc3.png" alt="Projet 3" />
-                <p>site samadoc</p>
+                <img src="images/doc3.png" alt="Projet 2">
+                <div class="portfolio__info">
+                    <h3>Projet 1</h3>
+                    <p>Développement d'une application web pour la reservation de rendez-vous medicale pour les medecins et les patients.</p>
+                </div>
             </div>
             <div class="portfolio__item">
-                <img src="images/agri1.png" alt="Projet 4" />
-                <p>Application mobile agriconnect</p>
+                <img src="images/agri1.png" alt="Projet 2">
+                <div class="portfolio__info">
+                    <h3>Projet 2</h3>
+                    <p>Application mobile pour la bonne gestion de l'agriculture.</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Section Formation -->
+    <!-- Section Formation -->
+    <section id="formations">
+        <h2>FORMATIONS</h2>
+        <p>Voici mon parcours depuis mes débuts en développement web.</p>
+        <div class="formations-container">
+            <div class="formation">
+                <div class="circle">
+                    <img src="images/lvdd.jpg" alt="Formation 1" class="formation-image">
+                </div>
+                <div class="arrow right">→</div> <!-- Flèche à droite -->
+                <div class="descriptionFormation">
+                    <p>Baccalaureat en Mathematiques-Sciences Physiques Au Lycee Valdiodio Ndiaye de Kaolack</p>
+                </div>
+            </div>
+            <div class="formation">
+                <div class="descriptionFormation">
+                    <p>Licence en Science Technologie Mention : Informatique , Specialite : Systeme d'Information</p>
+                </div>
+                <div class="arrow left">←</div>
+                <div class="circle">
+                    <img src="images/ugb.jpg" alt="Formation 2" class="formation-image">
+                </div>            
+            </div>
+        </div>
+    </section>
+
+    
+    
+
     <!-- Section Contact -->
     <section id="contact">
-        <h2>Contactez-moi</h2>
-        <form>
-            <label for="name">Nom :</label>
-            <input type="text" id="name" name="name" required>
-    
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" required>
-    
-            <label for="message">Message :</label>
-            <textarea id="message" name="message" required></textarea>
-    
-            <button type="submit">Envoyer</button>
-        </form>
+        <div class="video-background">
+            <video autoplay muted loop id="contact-video">
+                <source src="images/background.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas les vidéos HTML5.
+            </video>
+        </div>
+        <div class="contact-container">
+            <h2>Contactez-moi</h2>
+            <form action="send_email.php" method="POST">
+                <div class="form-columns">
+                    <!-- Colonne de gauche : Nom et Email -->
+                    <div class="left-column">
+                        <div class="form-group">
+                            <label for="name">
+                                <i class="fas fa-user"></i> Nom :
+                            </label>
+                            <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i> Email :
+                            </label>
+                            <input type="email" id="email" name="email" placeholder="Votre email" required>
+                        </div>
+                    </div>
+
+                    <!-- Colonne de droite : Message et Envoyer -->
+                    <div class="right-column">
+                        <div class="form-group">
+                            <label for="message">
+                                <i class="fas fa-comment"></i> Message :
+                            </label>
+                            <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+                        </div>
+
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i> Envoyer
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </section>
+
+    <!-- section footer-->
+    <footer class="footer">
+        <p> <span>&copy;</span> Pape Saniebe Ndao | 2024</p>
+    </footer>
+    
+    
+
+
+
+
+
+
 
     <!-- Ajouter le script à la fin du body -->
     <script src="scripts.js"></script>
