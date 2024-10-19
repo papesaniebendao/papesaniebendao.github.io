@@ -15,8 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
 
     try {
-        $mail->SMTPDebug = 2; // ou 3 pour plus de détails
-        $mail->Debugoutput = 'html';
 
         // Paramètres du serveur
         $mail->isSMTP();
